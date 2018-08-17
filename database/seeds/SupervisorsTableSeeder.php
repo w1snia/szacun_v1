@@ -13,8 +13,10 @@ class SupervisorsTableSeeder extends Seeder
     public function run()
     {
         $user = new Supervisor();
-        $user->name = 'supervisor';
-        $user->email = 'supervisor@example.com    ';
+        $user -> username = 'johdoe';
+        $user -> name = 'John';
+        $user -> surname = 'Doe';
+        $user->email = 'johdoe@example.com ';
         $user->password = bcrypt('qwerty');
         $user->save();
     }

@@ -16,7 +16,7 @@ class Supervisor extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','department'
+        'username','name','surname', 'email', 'password','department'
     ];
 
     /**

@@ -13,8 +13,10 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         $user = new Admin();
-        $user -> name = 'admin';
-        $user -> email = 'admin@example.com    ';
+        $user -> username = 'micsza';
+        $user -> name = 'Michał';
+        $user -> surname = 'Szatkowski';
+        $user -> email = 'micsza@example.com';
         $user -> password = bcrypt('qwerty');
         $user -> save();
     }

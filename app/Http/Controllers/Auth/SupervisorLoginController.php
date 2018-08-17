@@ -23,18 +23,18 @@ class SupervisorLoginController extends Controller
     {
         //Validate form data
         $this->validate($request,[
-            'email' => 'required|email',
+            'username' => 'required|string',
             'password' => 'required|min:6'
         ]);
 
         // Attempt to log user in
 
-        if(Auth::guard('supervisor')->attempt(['email'=> $request->email,'password'=>$request->password],$request->remember)){
+        if(Auth::guard('supervisor')->attempt(['username'=> $request->username,'password'=>$request->password],$request->remember)){
             //if successful, then redirect to their intended location
             return redirect()->intended(route('supervisor.dashboard'));
         }
 
         // if unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('email','remember'));
+        return redirect()->back()->withInput($request->only('username','remember'));
     }
 }
