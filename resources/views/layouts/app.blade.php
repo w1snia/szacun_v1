@@ -24,9 +24,32 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+
+                @guest
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                @endguest
+
+                @auth('web')
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                @endauth
+
+                @auth('admin')
+                <a class="navbar-brand" href="{{ url('/admin') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                @endauth
+
+                    @auth('supervisor')
+                        <a class="navbar-brand" href="{{ url('/supervisor') }}">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                    @endauth
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,12 +64,33 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('LOGOWANIE') }}</a>
-                            </li>
+                            {{--<li class="nav-item">--}}
+                                {{--<a class="nav-link" href="{{ route('login') }}">{{ __('LOGOWANIE') }}</a>--}}
+                            {{--</li>--}}
                             {{--<li class="nav-item">--}}
                                 {{--<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>--}}
                             {{--</li>--}}
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    ZALOGUJ <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link" href="{{ route('login') }}">
+                                        USER
+                                    </a>
+                                    <a class="nav-link" href="{{ route('supervisor.login') }}">
+                                        SUPERVISOR
+                                    </a>
+                                    <a class="nav-link" href="{{ route('admin.login') }}">
+                                        ADMIN
+                                    </a>
+
+
+                                </div>
+                            </li>
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

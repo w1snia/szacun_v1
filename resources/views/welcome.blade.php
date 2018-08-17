@@ -104,7 +104,7 @@
         <div class="jumbotron">
             <h1>Witaj w programie szacun</h1>
             <p class="lead"> Lorem ipsum bla bla bla</p>
-            <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">Dowiedz się więcej... &raquo;</a>
+            <a class="btn btn-lg btn-primary" href="/about" role="button">Dowiedz się więcej... &raquo;</a>
         </div>
     </main>
 
