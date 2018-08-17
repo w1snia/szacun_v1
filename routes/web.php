@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'PagesController@index')->name('about');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -29,6 +30,10 @@ Route::prefix('supervisor')->group(function(){
     Route::get('/login', 'Auth\SupervisorLoginController@showLoginForm')->name('supervisor.login');
     Route::post('/login', 'Auth\SupervisorLoginController@login')->name('supervisor.login.submit');
     Route::get('/', 'SupervisorController@index')->name('supervisor.dashboard');
+});
+
+Route::get('/about', function () {
+    return view('pages.about');
 });
 
 
