@@ -18,6 +18,26 @@ class SupervisorsTableSeeder extends Seeder
         $user -> surname = 'Doe';
         $user->email = 'johdoe@example.com ';
         $user->password = bcrypt('qwerty');
+        $user->department = "CIS";
         $user->save();
+
+        $user = new Supervisor();
+        $user -> username = 'jankow';
+        $user -> name = 'Jan';
+        $user -> surname = 'Kowalski';
+        $user->email = 'jankow@example.com ';
+        $user->password = bcrypt('qwerty');
+        $user->department = "BIS";
+        $user->save();
+
+        $user = new Supervisor();
+        $user -> username = 'pionow';
+        $user -> name = 'Piotr';
+        $user -> surname = 'Nowak';
+        $user->email = 'pionow@example.com ';
+        $user->password = bcrypt('qwerty');
+        $user->department = "FIS";
+        $user->save();
+
     }
 }

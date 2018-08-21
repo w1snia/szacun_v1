@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminRequest;
+use App\Supervisor;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -23,6 +26,53 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.admin');
+        $supervisors = Supervisor::all();
+        return view('admin.admin', compact('supervisors'));
+    }
+
+    public function showUsers()
+    {
+        $users = User::all();
+        return view('admin.show_users',compact('users'));
+    }
+
+    public function createUser()
+    {
+        return view('admin.create_user');
+    }
+
+    public function storeUser(AdminRequest $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+        $name = $request->input('name');
+        $surname = $request->input('surname');
+        $department = $request->input('department');
+        $email = $request->input('email');
+
+        User::create($request->all());
+        return redirect()->route('admin.dashboard');
+
+
+    }
+
+    public function createSupervisor()
+    {
+        return view('admin.create_supervisor');
+    }
+
+    public function storeSupervisor(AdminRequest $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+        $name = $request->input('name');
+        $surname = $request->input('surname');
+        $department = $request->input('department');
+        $email = $request->input('email');
+
+        Supervisor::create($request->all());
+        return redirect()->route('admin.dashboard');
+
+
     }
 }

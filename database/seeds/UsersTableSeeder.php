@@ -12,12 +12,40 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User();
-        $user -> username = 'micwis';
-        $user -> name = 'Michał';
-        $user -> surname = 'Wiśniewski';
-        $user->email = 'micwis@example.com';
-        $user->password = bcrypt('qwerty');
-        $user->save();
+        $faker = Faker\Factory::create();
+
+        for($i=1;$i<6;$i++) {
+            $user = new User();
+            $user->username = $faker->userName;
+            $user->name = $faker->firstName;
+            $user->surname = $faker->lastName;
+            $user->email = $faker->email;
+            $user->password = bcrypt('qwerty');
+            $user->department = "CIS";
+            $user->save();
+        }
+
+        for($i=6;$i<11;$i++) {
+            $user = new User();
+            $user->username = $faker->userName;
+            $user->name = $faker->firstName;
+            $user->surname = $faker->lastName;
+            $user->email = $faker->email;
+            $user->password = bcrypt('qwerty');
+            $user->department = "BIS";
+            $user->save();
+        }
+
+        for($i=11;$i<16;$i++) {
+            $user = new User();
+            $user->username = $faker->userName;
+            $user->name = $faker->firstName;
+            $user->surname = $faker->lastName;
+            $user->email = $faker->email;
+            $user->password = bcrypt('qwerty');
+            $user->department = "FIS";
+            $user->save();
+        }
+
     }
 }

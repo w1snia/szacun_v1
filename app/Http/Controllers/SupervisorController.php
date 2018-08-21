@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SupervisorController extends Controller
 {
@@ -23,6 +25,10 @@ class SupervisorController extends Controller
      */
     public function index()
     {
-        return view('supervisor.supervisor');
+        $users = User::all();
+        return view('supervisor.supervisor',compact('users'));
     }
+
+
+
 }
