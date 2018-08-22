@@ -52,8 +52,12 @@ class AdminController extends Controller
 
         User::create($request->all());
         return redirect()->route('admin.dashboard');
+    }
 
-
+    public function deleteUser($del_id)
+    {
+        User::destroy($del_id);
+        return redirect()->route('admin.show.user');
     }
 
     public function createSupervisor()
@@ -74,5 +78,11 @@ class AdminController extends Controller
         return redirect()->route('admin.dashboard');
 
 
+    }
+
+    public function deleteSupervisor($del_id)
+    {
+        Supervisor::destroy($del_id);
+        return redirect()->route('admin.dashboard');
     }
 }

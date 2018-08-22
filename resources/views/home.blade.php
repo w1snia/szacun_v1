@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <a href="{{ route('supervisor.pluschar') }}">AAAAAAAAAAa</a>
+
                     You are logged as USER!
                 </div>
             </div>

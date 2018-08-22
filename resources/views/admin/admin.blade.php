@@ -39,7 +39,8 @@
                                     <td>{{$supervisor->surname}}</td>
                                     <td>{{$supervisor->department}}</td>
                                     <td>{{$supervisor->count}}</td>
-                                    {{--<td><a class="btn btn-info" href="#">Edytuj</a></td>--}}
+                                    <td><a class="btn btn-dark" href="{{route('admin.delete.supervisor',$supervisor->id)}}">Usuń</a></td>
+
                                 </tr>
                              @endforeach
 

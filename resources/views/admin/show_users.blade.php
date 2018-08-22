@@ -75,7 +75,7 @@
                                     @else
                                         <td><h4><font color="red">N</font></td>
                                     @endif
-                                    {{--<td><a class="btn btn-info" href="#">Edytuj</a></td>--}}
+                                    <td><a class="btn btn-dark" href="{{route('admin.delete.user',$user->id)}}">Usuń</a></td>
                                 </tr>
                             @endforeach
 

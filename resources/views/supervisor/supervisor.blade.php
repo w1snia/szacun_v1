@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Dashboard</div>
+                    <div class="card-header">Dashboard
+
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -24,13 +26,7 @@
                                     <th>IMIĘ</th>
                                     <th>NAZWISKO</th>
                                     <th>DZIAŁ</th>
-                                    {{--<th>I</th>--}}
-                                    {{--<th>Q</th>--}}
-                                    {{--<th>O</th>--}}
-                                    {{--<th>R</th>--}}
-                                    {{--<th>I</th>--}}
-                                    {{--<th>A</th>--}}
-                                    {{--<th>N</th>--}}
+
                                 </tr>
                                 @foreach($users as $user)
                                     <tr>
@@ -39,45 +35,63 @@
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->surname}}</td>
                                         <td>{{$user->department}}</td>
-                                        <td>
 
+                                            <td>
                                             @if($user->i > 0)
-                                                <a class="btn btn-success" href="">I</a>
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementi',$user->id)}}">I</a>
                                             @else
-                                                <a class="btn btn-danger" href="">I</a>
-                                            @endif</td>
-                                        <td>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementi',$user->id)}}">I</a>
+                                            @endif
+                                            </td>
+
+                                            <td>
                                             @if($user->q > 0)
-                                                <button type="button" class="btn btn-success" href="/increment">Q</button>
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementq',$user->id)}}">Q</a>
                                             @else
-                                                <button type="button" class="btn btn-danger" href="/increment">Q</button>
-                                            @endif</td>
-                                        <td>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementq',$user->id)}}">Q</a>
+                                            @endif
+                                            </td>
+
+                                            <td>
                                             @if($user->o > 0)
-                                                <button type="button" class="btn btn-success">O</button>
+                                                <a class="btn btn-success" href="{{route('supervisor.incremento',$user->id)}}">O</a>
                                             @else
-                                                <button type="button" class="btn btn-danger">O</button>
-                                            @endif</td>
-                                        <td>   @if($user->r > 0)
-                                                <button type="button" class="btn btn-success">R</button>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incremento',$user->id)}}">O</a>
+                                            @endif
+                                            </td>
+
+                                            <td>
+                                            @if($user->r > 0)
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementr',$user->id)}}">R</a>
                                             @else
-                                                <button type="button" class="btn btn-danger">R</button>
-                                            @endif</td>
-                                        <td>   @if($user->i2 > 0)
-                                                <button type="button" class="btn btn-success">I</button>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementr',$user->id)}}">R</a>
+                                            @endif
+                                             </td>
+
+                                             <td>
+                                            @if($user->i2 > 0)
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementi2',$user->id)}}">I</a>
                                             @else
-                                                <button type="button" class="btn btn-danger">I</button>
-                                            @endif</td>
-                                        <td>   @if($user->a > 0)
-                                                <button type="button" class="btn btn-success">A</button>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementi2',$user->id)}}">I</a>
+                                            @endif
+                                            </td>
+
+                                            <td>
+                                            @if($user->a > 0)
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementa',$user->id)}}">A</a>
                                             @else
-                                                <button type="button" class="btn btn-danger">A</button>
-                                            @endif</td>
-                                        <td>   @if($user->n > 0)
-                                                <button type="button" class="btn btn-success">N</button>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementa',$user->id)}}">A</a>
+                                            @endif
+                                            </td>
+
+                                            <td>
+                                            @if($user->n > 0)
+                                                <a class="btn btn-success" href="{{route('supervisor.incrementn',$user->id)}}">N</a>
                                             @else
-                                                <button type="button" class="btn btn-danger">N</button>
-                                            @endif</td>
+                                                <a class="btn btn-danger" href="{{route('supervisor.incrementn',$user->id)}}">N</a>
+                                            @endif
+                                            </td>
+
                                     </tr>
                                 @endforeach
                             </table>
