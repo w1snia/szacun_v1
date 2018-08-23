@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AdminRequest;
 use App\Supervisor;
 use App\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -34,6 +35,15 @@ class AdminController extends Controller
     {
         $users = User::all();
         return view('admin.show_users',compact('users'));
+
+    }
+
+    public function userProfile($id)
+    {
+
+        $user = User::all()->where('id','LIKE',$id)->first();
+
+        return view('admin.userProfile', compact('user'));
     }
 
     public function createUser()
@@ -76,8 +86,12 @@ class AdminController extends Controller
 
         Supervisor::create($request->all());
         return redirect()->route('admin.dashboard');
+    }
 
-
+    public function supervisorProfile($id)
+    {
+        $supervisor = Supervisor::all()->where('id','LIKE',$id)->first();
+        return view('admin.supervisorProfile', compact('supervisor'));
     }
 
     public function deleteSupervisor($del_id)

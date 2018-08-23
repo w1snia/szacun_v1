@@ -1,15 +1,17 @@
 @extends('layouts.dashboard')
 
 @section('header')
+    <center>
+        <h3><strong><font color="red"><h1>{{$user->username}}</h1></font></strong></h3>
+    </center>
+@endsection
 
-    <strong>
-        Witaj {{Auth::user()->name}}!
-        <br>
-        Oto Twoje punkty SZACUNU :
-        <br>
-        <br>
-
-    </strong>
+@section('body')
+    <center>
+        <strong>{{$user->name}} {{$user->surname}}</strong><br>
+        <strong>Email :</strong> <a href="mailto:{{$user->email}}" target="_top">{{$user->email}}</a><br>
+        <strong>Dział :</strong> {{$user->department}}
+    </center>
 
     <table class="table table-bordered">
         <tr>
@@ -102,12 +104,7 @@
             @endif
         </tr>
     </table>
-    </tr>
-    </table>
 
 @endsection
 
-@section('body')
 
-
-@endsection

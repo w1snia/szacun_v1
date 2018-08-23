@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Supervisor;
+
+
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
@@ -36,13 +38,23 @@ class SupervisorController extends Controller
 ////        $supid = Auth::id();
 //        $supervisor = Supervisor::all()->where(Auth::id(),'LIKE','id');
         $name = Auth::user('supervisor')->name;
+        $count = Auth::user('supervisor')->count;
         $dep = Auth::user('supervisor')->department;
         $users = User::all()->where('department','LIKE',$dep);
 
 
 
-        return view('supervisor.supervisor',compact('users','name'));
+        return view('supervisor.supervisor',compact('users','count','name'));
     }
+
+    public function userProfile($id)
+    {
+
+        $user = User::all()->where('id','LIKE',$id)->first();
+
+        return view('supervisor.userProfile', compact('user'));
+    }
+
 
     public function incrementi($id)
     {

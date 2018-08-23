@@ -30,18 +30,21 @@ Route::prefix('admin')->group(function(){
     Route::get('/show/users/{del_id}/delete', 'AdminController@deleteUser')->name('admin.delete.user');
 
     Route::get('/show/users', 'AdminController@showUsers')->name('admin.show.user');
+    Route::get('/userProfile/{id}', 'AdminController@userProfile')->name('admin.userProfile');
 
     Route::get('/create/user', 'AdminController@createUser')->name('admin.create.user');
     Route::post('/store/user', 'AdminController@storeUser')->name('admin.store.user');
 
     Route::get('/create/supervisor', 'AdminController@createSupervisor')->name('admin.create.supervisor');
     Route::post('/store/supervisor', 'AdminController@storeSupervisor')->name('admin.store.supervisor');
+    Route::get('/supervisorProfile/{id}', 'AdminController@supervisorProfile')->name('admin.supervisorProfile');
 });
 
 Route::prefix('supervisor')->group(function(){
     Route::get('/login', 'Auth\SupervisorLoginController@showLoginForm')->name('supervisor.login');
     Route::post('/login', 'Auth\SupervisorLoginController@login')->name('supervisor.login.submit');
     Route::get('/', 'SupervisorController@index')->name('supervisor.dashboard');
+    Route::get('/userProfile/{id}', 'SupervisorController@userProfile')->name('supervisor.userProfile');
 
     Route::get('/incrementi/{id}', 'SupervisorController@incrementi')->name('supervisor.incrementi');
     Route::get('/incrementq/{id}', 'SupervisorController@incrementq')->name('supervisor.incrementq');
