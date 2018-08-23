@@ -35,12 +35,13 @@ class SupervisorController extends Controller
 
 ////        $supid = Auth::id();
 //        $supervisor = Supervisor::all()->where(Auth::id(),'LIKE','id');
+        $name = Auth::user('supervisor')->name;
         $dep = Auth::user('supervisor')->department;
         $users = User::all()->where('department','LIKE',$dep);
 
 
 
-        return view('supervisor.supervisor',compact('users'));
+        return view('supervisor.supervisor',compact('users','name'));
     }
 
     public function incrementi($id)
