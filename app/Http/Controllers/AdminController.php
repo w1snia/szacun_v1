@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use App\Http\Requests\AdminRequest;
 use App\Supervisor;
 use App\User;
+use App\Comment;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -38,12 +41,15 @@ class AdminController extends Controller
 
     }
 
+
+
     public function userProfile($id)
     {
 
         $user = User::all()->where('id','LIKE',$id)->first();
+        $comments = Comment::all()->where('id_user','LIKE',$id);
 
-        return view('admin.userProfile', compact('user'));
+        return view('admin.userProfile', compact('user','comments'));
     }
 
     public function createUser()
@@ -91,12 +97,64 @@ class AdminController extends Controller
     public function supervisorProfile($id)
     {
         $supervisor = Supervisor::all()->where('id','LIKE',$id)->first();
-        return view('admin.supervisorProfile', compact('supervisor'));
+        $dep = $supervisor->department;
+        $users = User::all()->where('department','LIKE',$dep);
+        return view('admin.supervisorProfile', compact('supervisor','users'));
     }
 
     public function deleteSupervisor($del_id)
     {
         Supervisor::destroy($del_id);
+        return redirect()->route('admin.dashboard');
+    }
+
+    public function createAdmin()
+    {
+        return view('admin.create_admin');
+    }
+
+    public function storeAdmin(AdminRequest $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+        $name = $request->input('name');
+        $surname = $request->input('surname');
+        $email = $request->input('email');
+
+        Admin::create($request->all());
+        return redirect()->route('admin.dashboard');
+    }
+
+
+    public function reports()
+    {
+        return view('admin.reports');
+    }
+
+    public function resetChar()
+    {
+        DB::table('users')->update(['i'=>0]);
+        DB::table('users')->update(['q'=>0]);
+        DB::table('users')->update(['o'=>0]);
+        DB::table('users')->update(['r'=>0]);
+        DB::table('users')->update(['i2'=>0]);
+        DB::table('users')->update(['a'=>0]);
+        DB::table('users')->update(['n'=>0]);
+        DB::table('supervisors')->update(['count'=>0]);
+        return redirect()->route('admin.dashboard');
+    }
+
+    public function resetComment()
+    {
+
+        $comments = Comment::all();
+        foreach($comments as $comment)
+        {
+            $comment->forceDelete();
+        }
+//        return response()->json(['error' => false]);
+
+
         return redirect()->route('admin.dashboard');
     }
 }

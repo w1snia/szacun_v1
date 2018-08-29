@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home',compact('user'));
+        $id = Auth::user()->id;
+        $comments = Comment::all()->where('id_user','LIKE',$id);
+        return view('home',compact('user','comments'));
     }
 }

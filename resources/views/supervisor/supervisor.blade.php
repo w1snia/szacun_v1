@@ -2,10 +2,10 @@
 
 @section('header')
 
-  <center>  <strong>Witaj, {{$name}} !</strong>
-  <br>
-      Liczba przydzielonych przez Ciebie punktów SZACUNU to : {{$count}}
-
+  <center>
+      Liczba przydzielonych przez Ciebie punktów SZACUNU:<br>
+      BIEŻĄCA TURA: {{$count}}<br>
+      TOTAL: {{$counttotal}}
   </center>
 @endsection
 
@@ -86,7 +86,9 @@
                         <a class="btn btn-danger" href="{{route('supervisor.incrementn',$user->id)}}">N</a>
                     @endif
                 </td>
-
+                {{--<td>--}}
+                {{--<a class="btn btn-info" href="{{route('supervisor.create.comment',$user->id)}}">+</a>--}}
+                {{--</td>--}}
             </tr>
         @endforeach
     </table>

@@ -15,11 +15,19 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string()
+            $table->string('title');
+            $table->text('body');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
+
+        Schema::create('comments',function($table){
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -28,6 +36,8 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
+        Schema::dropForeign(['user_id']);
         Schema::dropIfExists('comments');
+
     }
 }

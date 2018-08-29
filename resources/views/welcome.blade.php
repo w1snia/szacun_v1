@@ -100,12 +100,48 @@
 
 @section('content')
 
-    <main role="main" class="container">
-        <div class="jumbotron">
-            <h1>Witaj w programie szacun</h1>
-            <p class="lead"> Lorem ipsum bla bla bla</p>
-            <a class="btn btn-lg btn-primary" href="/about" role="button">Dowiedz się więcej... &raquo;</a>
-        </div>
-    </main>
+    {{--<main role="main" class="container">--}}
+        {{--<div class="jumbotron">--}}
+            {{--<h1>Witaj w programie szacun</h1>--}}
+            {{--<p class="lead"> Lorem ipsum bla bla bla</p>--}}
+            {{--<a class="btn btn-lg btn-primary" href="/about" role="button">Dowiedz się więcej... &raquo;</a>--}}
+        {{--</div>--}}
+    {{--</main>--}}
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-2">
+            <h1 class="display-4">Witaj w programie SZACUN!</h1>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+            <a href="#" class="btn btn-primary btn-lg">Dowiedz się więcej!</a>
+        </header>
+
+        <!-- Page Features -->
+        <div class="row text-center">
+
+
+            <img class="rounded-circle img-fluid d-block mx-auto" src="img/I.png" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="img/Q.png" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
+            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
+
+
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    {{--<footer class="py-5 bg-dark">--}}
+        {{--<div class="container">--}}
+            {{--<p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>--}}
+        {{--</div>--}}
+        {{--<!-- /.container -->--}}
+    {{--</footer>--}}
 
 @endsection

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header"   style="background-color:#e3e3e3">
                         @yield('header')
                     </div>
 

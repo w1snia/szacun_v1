@@ -38,6 +38,14 @@ Route::prefix('admin')->group(function(){
     Route::get('/create/supervisor', 'AdminController@createSupervisor')->name('admin.create.supervisor');
     Route::post('/store/supervisor', 'AdminController@storeSupervisor')->name('admin.store.supervisor');
     Route::get('/supervisorProfile/{id}', 'AdminController@supervisorProfile')->name('admin.supervisorProfile');
+
+    Route::get('/create/admin', 'AdminController@createAdmin')->name('admin.create.admin');
+    Route::post('/store/admin', 'AdminController@storeAdmin')->name('admin.store.admin');
+
+    Route::get('/reports','AdminController@reports')->name('admin.reports');
+    Route::get('/reports/resetChar','AdminController@resetChar')->name('admin.reports.resetChar');
+    Route::get('/reports/resetComment','AdminController@resetComment')->name('admin.reports.resetComment');
+
 });
 
 Route::prefix('supervisor')->group(function(){
@@ -53,6 +61,10 @@ Route::prefix('supervisor')->group(function(){
     Route::get('/incrementi2/{id}', 'SupervisorController@incrementi2')->name('supervisor.incrementi2');
     Route::get('/incrementa/{id}', 'SupervisorController@incrementa')->name('supervisor.incrementa');
     Route::get('/incrementn/{id}', 'SupervisorController@incrementn')->name('supervisor.incrementn');
+
+    //Comments
+    Route::get('/create/comment/{id}/letter/{letter}', 'CommentsController@index')->name('supervisor.create.comment');
+    Route::post('/store/comment/{id}/letter/{letter}', 'CommentsController@store')->name('supervisor.store.comment');
 });
 
 Route::get('/about', function () {

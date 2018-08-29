@@ -8,6 +8,14 @@
 
     {!! Form::open(['route' => 'admin.store.user']) !!}
 
+    @if ($errors->any())
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <br>
+    @endif
 
     {!! Form::label('username','Login:') !!}
     {!! Form::text('username',null,['class'=>'form-control']) !!}
@@ -39,8 +47,8 @@
     {!! Form::text('email',null,['class'=>'form-control']) !!}
 
 
-
-    {!! Form::submit('Zapisz',['class'=>'btn btn-primary']) !!}
+    <br>
+    {!! Form::submit('Zapisz',['class'=>'btn btn-primary', 'data-toggle'=>'modal', 'data-target'=>'#prompt']) !!}
     {!! link_to(route('admin.dashboard'),'<<< Powrót', [ 'class' => 'btn btn-default']) !!}
 
 
@@ -48,6 +56,7 @@
 
 
     {!! Form::close() !!}
+
 
 
 @endsection

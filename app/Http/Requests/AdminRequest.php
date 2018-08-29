@@ -24,12 +24,28 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|max:255',
-            'password' => 'required|max:255',
-            'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'department' => 'required|max:255',
-            'email' => 'required|max:255',
+            'username' => 'required|max:50',
+            'password' => 'required|max:50',
+            'name' => 'required|max:50',
+            'surname' => 'required|max:50',
+            'department' => 'max:50',
+            'email' => 'max:50',
         ];
     }
+
+
+//    public function messages()
+//    {
+//        return [
+//
+//            'username.required' => 'Pole login jest wymagane!',
+//            'password.required' => 'Pole hasło jest wymagane!',
+//            'name.required' => 'Pole imię jest wymagane!',
+//            'surname.required' => 'Pole nazwisko jest wymagane!',
+//            'department.required' => 'Pole dział jest wymagane!'
+//
+//        ]
+//    }
+
+
 }

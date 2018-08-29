@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('username')->unique();
             $table->string('name');
             $table->string('surname');
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('password');
-            $table->string('department')->default('NULL');
+            $table->string('department')->nullable();
             $table->integer('i')->default(0);
             $table->integer('q')->default(0);
             $table->integer('o')->default(0);
@@ -28,7 +28,16 @@ class CreateUsersTable extends Migration
             $table->integer('i2')->default(0);
             $table->integer('a')->default(0);
             $table->integer('n')->default(0);
+
+            $table->integer('itotal')->default(0);
+            $table->integer('qtotal')->default(0);
+            $table->integer('ototal')->default(0);
+            $table->integer('rtotal')->default(0);
+            $table->integer('i2total')->default(0);
+            $table->integer('atotal')->default(0);
+            $table->integer('ntotal')->default(0);
             $table->rememberToken();
+
             $table->timestamps();
         });
     }
