@@ -114,24 +114,16 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron my-2">
             <h1 class="display-4">Witaj w programie SZACUN!</h1>
-            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-            <a href="#" class="btn btn-primary btn-lg">Dowiedz się więcej!</a>
+            <p class="lead">
+                Posiadanie zestawu jasnych zasad i wskazówek pozwala przełożonym wyróżniać pracowników, a klienci
+                znają nasze wartości i jakość usług, które otrzymają. Nasze wartości iQorian definiują spójny zestaw
+                oczekiwań dotyczących sposobu działania i interakcji.</p>
+            <a href="http://www.iqor.com/culture" class="btn btn-primary btn-lg">Dowiedz się więcej!</a>
         </header>
 
         <!-- Page Features -->
         <div class="row text-center">
 
-
-            <img class="rounded-circle img-fluid d-block mx-auto" src="img/I.png" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="img/Q.png" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
-            <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/150x150" alt="">
-
-
-        <!-- /.row -->
 
     </div>
     <!-- /.container -->

@@ -21,6 +21,8 @@ class AdminRequest extends FormRequest
      *
      * @return array
      */
+
+    // Validation for add user,supervisor forms
     public function rules()
     {
         return [
@@ -33,19 +35,6 @@ class AdminRequest extends FormRequest
         ];
     }
 
-
-//    public function messages()
-//    {
-//        return [
-//
-//            'username.required' => 'Pole login jest wymagane!',
-//            'password.required' => 'Pole hasło jest wymagane!',
-//            'name.required' => 'Pole imię jest wymagane!',
-//            'surname.required' => 'Pole nazwisko jest wymagane!',
-//            'department.required' => 'Pole dział jest wymagane!'
-//
-//        ]
-//    }
 
 
 }

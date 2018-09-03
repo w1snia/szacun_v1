@@ -7,14 +7,17 @@
 @endsection
 
 
-
-
-
 @section('body')
+   <br>
+
+   <a class="btn btn-dark" href="{{route('admin.reports.showReport')}}"><i class="fas fa-file-pdf"> RAPORT</i></a><br>
+   (wygeneruj raport pdf)
+
    <br><br>
 
+
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
-        USUŃ SZACUN
+        <i class="fas fa-eraser"> USUŃ SZACUN</i>
     </button><br>
     (resetuje wszystkie punkty SZACUN oraz licznik przełożonych,<br>
     punkty TOTAL zostają bez zmian)
@@ -52,7 +55,7 @@
 <br><br>
 
    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete2">
-       USUŃ KOMENTARZE
+       <i class="fas fa-eraser"> USUŃ KOMENTARZE</i>
    </button><br>
    (usuwa wszystkie komentarze)
 

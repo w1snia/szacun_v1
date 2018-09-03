@@ -14,14 +14,13 @@
 
         <strong>{{$supervisor->name}} {{$supervisor->surname}}</strong><br>
         <strong>Email :</strong> <a href="mailto:{{$supervisor->email}}" target="_top">{{$supervisor->email}}</a><br>
-        <strong>Dział :</strong> {{$supervisor->department}}<br>
-        <strong>Ilość przydzielonych liter: </strong><br>
+        <strong>Dział :</strong> {{$supervisor->department}}<br><br>
+        <strong>Ilość przydzielonych liter </strong><br>
         <strong>BIEŻĄCA TURA:</strong> {{$supervisor->count}}<br>
-        <strong>TOTAL:</strong> {{$supervisor->counttotal}}<br><br>
+        <strong>TOTAL:</strong> {{$supervisor->counttotal}}<br><br><br>
 
     <table class="table table-hover">
         <tr>
-            {{--<th>ID</th>--}}
             <th>LOGIN</th>
             <th>IMIĘ</th>
             <th>NAZWISKO</th>
@@ -31,7 +30,6 @@
         </tr>
         @foreach($users as $user)
             <tr>
-                {{--<td>{{$supervisor->id}}</td>--}}
                 <td><a href="{{route('admin.userProfile',$user->id)}}">{{$user->username}}</a></td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->surname}}</td>

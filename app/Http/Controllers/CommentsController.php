@@ -16,11 +16,23 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+//////////////////////////////////////////
+///
+///    COMMENT CONTROLLERS,
+///    u need to be logged as Supervisor to use it.
+///
+/////////////////////////////////////////
+///
+///
     public function __construct()
     {
         $this->middleware('auth:supervisor');
     }
 
+    //page with form where supervisors create comment for user
     public function index($id, $letter)
     {
 
@@ -44,6 +56,10 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+    // Storing comment in database
+    // Also increment specific letter($letter) for specific user($user)
+    // Title for comment is automatically set depends of $letter
     public function store(Request $request, $id, $letter)
     {
         $this->validate($request, array(
@@ -60,10 +76,6 @@ class CommentsController extends Controller
 
         $comment->save();
 
-//        if($letter == "Integrity"){
-//            $l='i';
-//            $ltotal ='itotal';
-//        }
 
         switch ($letter) {
             case 'Integrity':

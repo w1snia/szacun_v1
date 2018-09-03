@@ -3,9 +3,9 @@
 @section('header')
 
   <center>
-      Liczba przydzielonych przez Ciebie punktów SZACUNU:<br>
-      BIEŻĄCA TURA: {{$count}}<br>
-      TOTAL: {{$counttotal}}
+      <center>
+          <h3><strong><font color="red"><h1>{{$username}}</h1></font></strong></h3>
+      </center>
   </center>
 @endsection
 

@@ -6,7 +6,8 @@
     <center>
         <a class="btn btn-info" href="{{route('admin.dashboard')}}"><i class="fas fa-list-ul"> PRZEŁOŻENI</i></a>
         <a class="btn btn-info" href="{{route('admin.show.user')}}"><i class="fas fa-list-ul"> PRACOWNICY</i></a>
-        <a class="btn btn-success" href="{{route('admin.create.supervisor')}}"><i class="fas fa-user-plus"> PRZEŁOŻONY</i></a>
+        <a class="btn btn-success" href="{{route('admin.create.supervisor')}}"><i class="fas fa-user-plus">
+                PRZEŁOŻONY</i></a>
         <a class="btn btn-success" href="{{route('admin.create.user')}}"><i class="fas fa-user-plus"> PRACOWNIK</i></a>
         <a class="btn btn-dark" href="{{route('admin.reports')}}"><i class="fas fa-cogs"></i></a>
     </center>
@@ -28,25 +29,23 @@
         </tr>
         @foreach($supervisors as $supervisor)
             <tr>
-                {{--<td>{{$supervisor->id}}</td>--}}
                 <td><a href="{{route('admin.supervisorProfile',$supervisor->id)}}">{{$supervisor->username}}</a></td>
                 <td>{{$supervisor->name}}</td>
                 <td>{{$supervisor->surname}}</td>
                 <td>{{$supervisor->department}}</td>
                 <td>{{$supervisor->count}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{$supervisor->id}}">
                         <i class="fas fa-times"></i>
                     </button>
 
 
                     <!-- Modal -->
-                    <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog"
+                    <div class="modal modal-danger fade" id="delete-{{$supervisor->id}}" tabindex="-1" role="dialog"
                          aria-labelledby="myModalLabel">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    {{--<h4 class="modal-title text-center" id="myModalLabel"></h4>--}}
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                                 aria-hidden="true">&times;</span></button>
 

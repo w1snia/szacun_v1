@@ -33,36 +33,49 @@ class SupervisorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //////////////////////////////////////////
+///
+///    SUPERVISOR CONTROLLERS,
+///    u need to be logged as Supervisor to use it.
+///
+/////////////////////////////////////////
+
+    // main Supervisor page
     public function index()
     {
 
-        $name = Auth::user('supervisor')->name;
+        $username = Auth::user('supervisor')->username;
         $count = Auth::user('supervisor')->count;
         $counttotal = Auth::user('supervisor')->counttotal;
         $dep = Auth::user('supervisor')->department;
         $users = User::all()->where('department', 'LIKE', $dep);
 
 
-        return view('supervisor.supervisor', compact('users', 'count', 'name','counttotal'));
+        return view('supervisor.supervisor', compact('users', 'count', 'username','counttotal'));
     }
 
+    // Users profile, passing comments to display them
     public function userProfile($id)
     {
 
         $user = User::all()->where('id', 'LIKE', $id)->first();
-        $comments = Comment::all()->where('id_user', 'LIKE', $id);
+        $comments = Comment::where('user_id',$id)->orderByDesc('created_at')->get();
 
         return view('supervisor.userProfile', compact('user', 'comments'));
     }
 
 
+
+    ////////////////////////////
+    ///
+    ///  Increment func set the letter and redirect to comment form with param $letter
+    ///
+    /// /////////////////////
+
     public function incrementi($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('i', 1);
-//        DB::table('users')->where('id', $id)->increment('itotal', 1);
+
         $letter = 'Integrity';
         return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
 
@@ -70,12 +83,6 @@ class SupervisorController extends Controller
 
     public function incrementq($id)
     {
-////        $authid = Auth::id();
-////        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-////        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-////        DB::table('users')->where('id', $id)->increment('q', 1);
-////        DB::table('users')->where('id', $id)->increment('qtotal', 1);
-//        return redirect()->route('supervisor.dashboard');
 
         $letter = 'Qustomer Dedication';
         return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
@@ -83,12 +90,6 @@ class SupervisorController extends Controller
 
     public function incremento($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('o', 1);
-//        DB::table('users')->where('id', $id)->increment('ototal', 1);
-//        return redirect()->route('supervisor.dashboard');
 
         $letter = 'Open Communication';
         return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
@@ -96,24 +97,12 @@ class SupervisorController extends Controller
 
     public function incrementr($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('r', 1);
-//        DB::table('users')->where('id', $id)->increment('rtotal', 1);
-//        return redirect()->route('supervisor.dashboard');
         $letter = 'Respect';
         return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
     }
 
     public function incrementi2($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('a', 1);
-//        DB::table('users')->where('id', $id)->increment('atotal', 1);
-//        return redirect()->route('supervisor.dashboard');
 
         $letter = 'Innovation';
         return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
@@ -121,25 +110,13 @@ class SupervisorController extends Controller
 
     public function incrementa($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('a', 1);
-//        DB::table('users')->where('id', $id)->increment('atotal', 1);
-//        return redirect()->route('supervisor.dashboard');
-
     $letter = 'Accountability';
     return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
     }
 
     public function incrementn($id)
     {
-//        $authid = Auth::id();
-//        DB::table('supervisors')->where('id', $authid)->increment('count', 1);
-//        DB::table('supervisors')->where('id', $authid)->increment('counttotal', 1);
-//        DB::table('users')->where('id', $id)->increment('n', 1);
-//        DB::table('users')->where('id', $id)->increment('ntotal', 1);
-//        return redirect()->route('supervisor.dashboard');
+
     $letter = 'Need to give back';
     return redirect()->route('supervisor.create.comment',['id'=>$id,'letter'=>$letter]);
     }

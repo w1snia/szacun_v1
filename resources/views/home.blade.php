@@ -202,8 +202,7 @@
 
 
 
-@foreach($user->comments as $comment)
-
+@foreach($comments as $comment)
     <div class="row justify-content-center">
     <div class="card col-md-11 col-sm-11s"  style="background-color:#e3e3e3">
         <div class="card-body text-left ">

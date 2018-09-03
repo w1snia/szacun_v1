@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about', 'PagesController@index')->name('about');
 
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -43,6 +42,11 @@ Route::prefix('admin')->group(function(){
     Route::post('/store/admin', 'AdminController@storeAdmin')->name('admin.store.admin');
 
     Route::get('/reports','AdminController@reports')->name('admin.reports');
+    Route::get('/reports/showReport','AdminController@showReport')->name('admin.reports.showReport');
+    Route::get('/reports/showReport/downloadReport','AdminController@downloadReport')->name('admin.reports.downloadReport');
+    Route::get('/reports/showReport/downloadReportExcel','AdminController@downloadReportExcel')->name('admin.reports.downloadReportExcel');
+    Route::get('/reports/showReport/downloadReportExcel2','AdminController@downloadReportExcel2')->name('admin.reports.downloadReportExcel2');
+
     Route::get('/reports/resetChar','AdminController@resetChar')->name('admin.reports.resetChar');
     Route::get('/reports/resetComment','AdminController@resetComment')->name('admin.reports.resetComment');
 
@@ -67,8 +71,6 @@ Route::prefix('supervisor')->group(function(){
     Route::post('/store/comment/{id}/letter/{letter}', 'CommentsController@store')->name('supervisor.store.comment');
 });
 
-Route::get('/about', function () {
-    return view('pages.about');
-});
+
 
 

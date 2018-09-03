@@ -28,13 +28,6 @@
     {!! Form::text('surname',null,['class'=>'form-control']) !!}
 
 
-
-    {{--{!! Form::label('department','Dział:') !!}--}}
-    {{--{!! Form::text('department',null,['class'=>'form-control']) !!}--}}
-
-
-
-
     {!! Form::label('email','E-mail:') !!}
     {!! Form::text('email',null,['class'=>'form-control']) !!}
 

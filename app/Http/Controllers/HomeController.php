@@ -6,6 +6,13 @@ use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+//////////////////////////////////////////
+///
+///    USER CONTROLLERS,
+///    u need to be logged as User to use it.
+///
+/////////////////////////////////////////
+
 class HomeController extends Controller
 {
     /**
@@ -28,7 +35,8 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $id = Auth::user()->id;
-        $comments = Comment::all()->where('id_user','LIKE',$id);
+        $comments = Comment::where('user_id',$id)->orderByDesc('created_at')->get();
+
         return view('home',compact('user','comments'));
     }
 }
